@@ -136,7 +136,7 @@ export default function WizardPage() {
               <option value="">Select completed appointment *</option>
               {appointments.map(a => (
                 <option key={a.id} value={a.id}>
-                  {a.profiles?.full_name} — Dr. {a.doctors?.full_name} ({formatDate(a.scheduled_at)})
+                  Patient — Dr.              {a.doctors?.full_name} ({formatDate(a.scheduled_at)})
                 </option>
               ))}
             </select>
