@@ -23,7 +23,7 @@ export default function WizardPage() {
 
   const fetchAll = async () => {
     const [adm, appts] = await Promise.all([
-      supabase.from('admissions').select('*, profiles:patient_id(full_name), doctors(full_name), clinics(name)').eq('status', 'admitted').order('admitted_at', { ascending: false }),
+      supabase.from('admissions').select('*, doctors(full_name), clinics(name)').eq('status', 'admitted').order('admitted_at', { ascending: false }),
       supabase.from('appointments').select('*, doctors(full_name)').eq('status', 'completed').order('scheduled_at', { ascending: false }).limit(50),
     ])
     setAdmissions(adm.data ?? [])
@@ -102,7 +102,7 @@ export default function WizardPage() {
                   <div key={a.id} className="card p-4">
                     <div className="flex items-start justify-between gap-2 mb-3">
                       <div>
-                        <p className="font-semibold text-[var(--text)]">{a.profiles?.full_name}</p>
+                        <p className="font-semibold text-[var(--text)]">Admitted Patient</p>
                         <p className="text-xs text-[var(--muted)]">Dr. {a.doctors?.full_name}</p>
                       </div>
                       <div className="rounded-xl bg-purple-50 border border-purple-100 px-3 py-1.5 text-center shrink-0">
