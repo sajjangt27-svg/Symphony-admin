@@ -24,7 +24,7 @@ export default function WizardPage() {
   const fetchAll = async () => {
     const [adm, appts] = await Promise.all([
       supabase.from('admissions').select('*, profiles:patient_id(full_name), doctors(full_name), clinics(name)').eq('status', 'admitted').order('admitted_at', { ascending: false }),
-      supabase.from('appointments').select('*, profiles:patient_id(full_name), doctors(full_name)').eq('status', 'completed').order('scheduled_at', { ascending: false }).limit(50),
+      supabase.from('appointments').select('*, doctors(full_name)').eq('status', 'completed').order('scheduled_at', { ascending: false }).limit(50),
     ])
     setAdmissions(adm.data ?? [])
     setAppointments(appts.data ?? [])
