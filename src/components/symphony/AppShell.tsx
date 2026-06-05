@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ChevronLeft, LogOut, Music2, LayoutDashboard, Stethoscope, Building2, CalendarDays, Wand2, Users } from 'lucide-react'
+import { ChevronLeft, LogOut, Music2, LayoutDashboard, Stethoscope, Building2, CalendarDays, Wand2, Users, Bell } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 
 interface Props { children: ReactNode; showBack?: boolean; title?: string; subtitle?: string }
@@ -17,6 +17,7 @@ export function AppShell({ children, showBack, title, subtitle }: Props) {
     { path: '/clinics', icon: Building2, label: 'Clinics' },
     { path: '/appointments', icon: CalendarDays, label: 'Bookings' },
     { path: '/wizard', icon: Wand2, label: 'Wizard' },
+    { path: '/notifications', icon: Bell, label: 'Alerts' },
     { path: '/users', icon: Users, label: 'Users' },
   ]
 
