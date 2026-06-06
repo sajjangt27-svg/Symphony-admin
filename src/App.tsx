@@ -8,6 +8,7 @@ import AppointmentsPage from '@/pages/Appointments'
 import WizardPage from '@/pages/Wizard'
 import UsersPage from '@/pages/Users'
 import NotificationsPage from '@/pages/Notifications'
+import ApplicationsPage from '@/pages/Applications'
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth()
@@ -31,6 +32,7 @@ export default function App() {
       <Route path="/wizard" element={<RequireAuth><WizardPage /></RequireAuth>} />
       <Route path="/users" element={<RequireAuth><UsersPage /></RequireAuth>} />
       <Route path="/notifications" element={<RequireAuth><NotificationsPage /></RequireAuth>} />
+      <Route path="/applications" element={<RequireAuth><ApplicationsPage /></RequireAuth>} />
     </Routes>
   )
 }
