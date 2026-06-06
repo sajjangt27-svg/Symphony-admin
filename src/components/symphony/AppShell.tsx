@@ -16,7 +16,7 @@ export function AppShell({ children, showBack, title, subtitle }: Props) {
     { path: '/appointments', icon: CalendarDays, label: 'Bookings' },
     { path: '/wizard', icon: Wand2, label: 'Wizard' },
     { path: '/applications', icon: ClipboardList, label: 'Apply' },
-    { path: '/users', icon: Users, label: 'Users' },
+    { path: '/users', icon: Users, label: 'More' },
   ]
 
   const wizardNav = [
