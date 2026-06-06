@@ -13,11 +13,8 @@ export function AppShell({ children, showBack, title, subtitle }: Props) {
 
   const adminNav = [
     { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
-    { path: '/doctors', icon: Stethoscope, label: 'Doctors' },
-    { path: '/clinics', icon: Building2, label: 'Clinics' },
     { path: '/appointments', icon: CalendarDays, label: 'Bookings' },
     { path: '/wizard', icon: Wand2, label: 'Wizard' },
-    { path: '/notifications', icon: Bell, label: 'Alerts' },
     { path: '/applications', icon: ClipboardList, label: 'Apply' },
     { path: '/users', icon: Users, label: 'Users' },
   ]
