@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Users, User, Shield, Wand2 } from 'lucide-react'
+import { Users, User, Shield, Stethoscope, Building2, Bell } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { AppShell } from '@/components/symphony/AppShell'
 import { supabase } from '@/lib/supabase'
 import { toast } from 'sonner'
@@ -44,8 +45,26 @@ export default function UsersPage() {
   }
 
   return (
-    <AppShell title="Users" subtitle={`${users.length} registered users`}>
+    <AppShell title="More" subtitle="Manage your platform">
       <div className="space-y-3 animate-fade-up">
+
+        {/* Quick links */}
+        <div className="grid grid-cols-3 gap-3 mb-2">
+          {[
+            { to: '/doctors', icon: Stethoscope, label: 'Doctors', bg: 'bg-indigo-50', color: 'text-indigo-500' },
+            { to: '/clinics', icon: Building2, label: 'Clinics', bg: 'bg-orange-50', color: 'text-orange-500' },
+            { to: '/notifications', icon: Bell, label: 'Alerts', bg: 'bg-purple-50', color: 'text-purple-500' },
+          ].map(({ to, icon: Icon, label, bg, color }) => (
+            <Link key={to} to={to} className="card flex flex-col items-center gap-2 p-4 hover:shadow-[var(--shadow-md)] transition-all">
+              <div className={`grid h-10 w-10 place-items-center rounded-xl ${bg}`}>
+                <Icon className={`h-5 w-5 ${color}`} />
+              </div>
+              <p className="text-xs font-bold text-[var(--text)]">{label}</p>
+            </Link>
+          ))}
+        </div>
+
+        <h2 className="font-display text-base font-bold text-[var(--text)] mt-2">All users</h2>
         {loading ? (
           <div className="space-y-3">{[1,2,3].map(i => <div key={i} className="card h-16 animate-pulse bg-gray-100" />)}</div>
         ) : users.map(u => {
